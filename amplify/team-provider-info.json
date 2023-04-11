@@ -1,0 +1,42 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-acube-dev-13210-authRole",
+      "UnauthRoleArn": "arn:aws:iam::338179339601:role/amplify-acube-dev-13210-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::338179339601:role/amplify-acube-dev-13210-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-acube-dev-13210-deployment",
+      "UnauthRoleName": "amplify-acube-dev-13210-unauthRole",
+      "StackName": "amplify-acube-dev-13210",
+      "StackId": "arn:aws:cloudformation:us-east-1:338179339601:stack/amplify-acube-dev-13210/11ba1080-8647-11ed-b0fd-0e50ef923d43",
+      "AmplifyAppId": "d2qeo5clykr01z"
+    },
+    "categories": {
+      "auth": {
+        "acube3b21fac4": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2qeo5clykr01z",
+          "type": "manual"
+        }
+      },
+      "storage": {
+        "pol": {}
+      },
+      "function": {
+        "PythonFunctionUploadFile": {
+          "deploymentBucketName": "amplify-acube-dev-13210-deployment",
+          "s3Key": "amplify-builds/PythonFunctionUploadFile-68586e474c6e4a347143-build.zip"
+        },
+        "acubefilemanager": {
+          "deploymentBucketName": "amplify-acube-dev-13210-deployment",
+          "s3Key": "amplify-builds/acubefilemanager-783049724b7a56326477-build.zip"
+        }
+      },
+      "api": {
+        "acube": {}
+      }
+    }
+  }
+}

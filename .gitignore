@@ -1,0 +1,5 @@
+node_modules/*
+amplify/#current-cloud-backend/*
+*.zip
+*.d.ts
+build/

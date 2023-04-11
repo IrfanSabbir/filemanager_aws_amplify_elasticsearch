@@ -1,0 +1,12 @@
+{
+  "resourceName": "pol",
+  "policyUUID": "11f34298",
+  "bucketName": "acubed13fa2cc09404d5a9a6b76de4bbf8a72",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE"
+  ],
+  "groupAccess": {},
+  "triggerFunction": "PythonFunctionUploadFile"
+}

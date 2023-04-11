@@ -1,0 +1,180 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-acube-dev-13210-authRole",
+      "UnauthRoleArn": "arn:aws:iam::338179339601:role/amplify-acube-dev-13210-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::338179339601:role/amplify-acube-dev-13210-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-acube-dev-13210-deployment",
+      "UnauthRoleName": "amplify-acube-dev-13210-unauthRole",
+      "StackName": "amplify-acube-dev-13210",
+      "StackId": "arn:aws:cloudformation:us-east-1:338179339601:stack/amplify-acube-dev-13210/11ba1080-8647-11ed-b0fd-0e50ef923d43",
+      "AmplifyAppId": "d2qeo5clykr01z"
+    }
+  },
+  "auth": {
+    "acube3b21fac4": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "output": {
+        "UserPoolId": "us-east-1_5hbJUcgMm",
+        "AppClientIDWeb": "1hkk70qeelpimvrmmpgs5g61ao",
+        "AppClientID": "6eu15on2qopbckp7ulmcfanied",
+        "IdentityPoolId": "us-east-1:49fa7689-5da1-461f-aa73-83d432f94af1",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:338179339601:userpool/us-east-1_5hbJUcgMm",
+        "IdentityPoolName": "acube3b21fac4_identitypool_3b21fac4__dev",
+        "UserPoolName": "acube3b21fac4_userpool_3b21fac4"
+      },
+      "lastPushTimeStamp": "2023-04-09T06:35:49.143Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-acube-dev-13210-deployment/amplify-cfn-templates/auth/acube3b21fac4-cloudformation-template.json",
+        "logicalId": "authacube3b21fac4"
+      },
+      "lastPushDirHash": "ZXtkN0sOWT+29M6SCj3aVWE0g60="
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "providerPlugin": "awscloudformation",
+      "type": "manual",
+      "output": {},
+      "lastPushTimeStamp": "2023-04-09T06:35:49.149Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-acube-dev-13210-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "logicalId": "hostingamplifyhosting"
+      },
+      "lastPushDirHash": "5qRK0ovafg+uZ3E7jt69yGOffqI="
+    }
+  },
+  "function": {
+    "PythonFunctionUploadFile": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2023-01-21T15:14:48.650Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-01-21T15:14:50.586Z",
+      "distZipFilename": "PythonFunctionUploadFile-68586e474c6e4a347143-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-acube-dev-13210-deployment",
+        "s3Key": "amplify-builds/PythonFunctionUploadFile-68586e474c6e4a347143-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-acube-dev-13210-deployment/amplify-cfn-templates/function/PythonFunctionUploadFile-cloudformation-template.json",
+        "logicalId": "functionPythonFunctionUploadFile"
+      },
+      "lastPushTimeStamp": "2023-04-09T06:35:49.151Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::338179339601:role/acubeLambdaRole8d85ca09-dev",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:338179339601:function:PythonFunctionUploadFile-dev",
+        "Name": "PythonFunctionUploadFile-dev",
+        "LambdaExecutionRole": "acubeLambdaRole8d85ca09-dev"
+      },
+      "lastPushDirHash": "2a7fj7zD9WAywWrhFIrk7EXPW44="
+    },
+    "acubefilemanager": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2023-04-09T06:34:31.042Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-04-09T06:34:31.078Z",
+      "distZipFilename": "acubefilemanager-783049724b7a56326477-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-acube-dev-13210-deployment",
+        "s3Key": "amplify-builds/acubefilemanager-783049724b7a56326477-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-acube-dev-13210-deployment/amplify-cfn-templates/function/acubefilemanager-cloudformation-template.json",
+        "logicalId": "functionacubefilemanager"
+      },
+      "lastPushTimeStamp": "2023-04-09T06:35:50.719Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::338179339601:role/acubeLambdaRole46da4779-dev",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:338179339601:function:acubefilemanager-dev",
+        "Name": "acubefilemanager-dev",
+        "LambdaExecutionRole": "acubeLambdaRole46da4779-dev"
+      },
+      "lastPushDirHash": "rn0yNNkhFXhSrGSAwnCngPsjrsM="
+    }
+  },
+  "storage": {
+    "pol": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "PythonFunctionUploadFile",
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ]
+        }
+      ],
+      "output": {
+        "BucketName": "acubed13fa2cc09404d5a9a6b76de4bbf8a7213210-dev",
+        "Region": "us-east-1"
+      },
+      "lastPushTimeStamp": "2023-04-09T06:35:49.158Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-acube-dev-13210-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storagepol"
+      },
+      "lastPushDirHash": "+LiLlLNEnPdmmGW+12AJcYs/4Zc="
+    }
+  },
+  "api": {
+    "acube": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "retgrclpvjduhi2hzchj37m2f4",
+        "GraphQLAPIEndpointOutput": "https://4i6w7omug5h2dletgidxa36h5m.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-h6lnlkhebjawdmeioutxzt76oq"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-acube-dev-13210-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiacube"
+      },
+      "lastPushTimeStamp": "2023-04-09T06:35:49.160Z",
+      "lastPushDirHash": "ZQMxpT4nQaCBrOFJpVuIbXEPP7I="
+    }
+  }
+}

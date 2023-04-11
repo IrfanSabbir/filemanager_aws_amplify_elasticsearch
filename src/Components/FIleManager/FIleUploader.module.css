@@ -1,0 +1,82 @@
+.drop_area {
+    /* position: relative; */
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 98%;
+    margin: 10px;
+    height: 200px;
+    border: 2px dashed rgb(52, 126, 255);
+    padding: 8px 16px 8px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-grow: 0;
+}
+.react-drag-drop-container {
+    background-color: #be1616;
+  }
+.drop_zone_text {
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(52, 126, 255);;
+}
+
+.File_Manager_Component {
+    margin-top: 10px;
+    padding: 20px;
+}
+.pagination_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+/* .drop_zone {
+    font-size: 30px;
+    font-weight: bolder;
+
+} */
+
+.file_select_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+  }
+  
+  .left_content {
+    text-align: left;
+  }
+
+  .center_content {
+    text-align: center;
+  }
+  
+  .right_content {
+    text-align: right;
+  }
+
+  .content_pointer {
+    cursor: pointer;
+  }
+
+  .input_error {
+    display: flex;
+    color: #dd0000;
+    margin-left: 10px;
+
+  }
+
+  .red_elab{
+    background-color: #dd0000;
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+  }
+
+  .green_elab{
+    background-color: #00dd00;
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+  }
