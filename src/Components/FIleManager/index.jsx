@@ -3,7 +3,6 @@ import { API, graphqlOperation } from 'aws-amplify';
 
 import { searchFileManagers } from "../../graphql/queries";
 import ListFIles from "./ListFIles";
-import FileUploadeCompont from "./FIleUploader";
 import CircularProgress from '@mui/material/CircularProgress';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
@@ -107,12 +106,7 @@ export default function FileManager() {
   }
 
   return (
-    <Container maxWidth="lg" style={{ margin: "0 auto" }}>
-
-      <Paper className={styles.File_Manager_Component}>
-
-        <FileUploadeCompont handleRefresh={handleRefresh} />
-      </Paper>
+    <Container maxWidth="xl" style={{ margin: "0 auto" }}>
 
       <h2>List Files</h2>
       <ItemFIlter

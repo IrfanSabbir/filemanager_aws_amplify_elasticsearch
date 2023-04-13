@@ -16,7 +16,7 @@ import { deleteFileManager,s3DeleteObject, s3DeleteObjectByPrefix } from "../../
 import AlertBox from './Alert';
 import styles from './FIleUploader.module.css';
 import Button from '@mui/material/Button';
-
+import DeleteModalContainer from "./DeleteModal"
 
 const bucketList = {
   MAIN_FILE: "main_file",
@@ -38,11 +38,14 @@ const ListFIles = ({
   const [expandIndex, setExpandIndex] = useState(-1)
   const [pdfUrl, setPdfUrl] = useState(null)
   const [pdfKey, setPdfKey] = useState(null)
+  const [itemId, setItemId] = useState(null)
   const [s3SplittedFiles, setS3SplittedFiles] = useState([])
 
   const [loading, setLoading] = useState(false)
   const [loadingIndex, setLoadingIndex] = useState(-1)
   const [open, setOpen] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(false)
+
   const [fileAlert, setFileAlert] = useState({
     action: '',
     message: ''
@@ -95,43 +98,6 @@ const ListFIles = ({
 
   }
 
-  const handleDeleteFile = async (key, id) => { 
-    setLoading(true)
-    try {
-      const params = {
-        bucket: s3Buckets.main_file,
-        key: `${MAIN_FILE_ACCESS_LEVEL}/${key}`
-      };
-      const deleteFilePromise=  API.graphql(
-        graphqlOperation(s3DeleteObject, params)
-      );
-  
-      const prefixOfCurrentFIle = key.split('.')[0];
-      const splittedParams = {
-        bucket: s3Buckets.splitted_file,
-        prefix: `${SPLITTED_FILE_ACCESS_LEVEL}/${prefixOfCurrentFIle}_`
-      };
-      const deleteSplittedFilePromise = API.graphql(
-        graphqlOperation(s3DeleteObjectByPrefix, splittedParams)
-      );
-  
-      const deleteFileManagerPromise = API.graphql(
-        graphqlOperation(deleteFileManager, { input: { id: id } })
-      )
-  
-      const result = await Promise.all([deleteFilePromise, deleteSplittedFilePromise, deleteFileManagerPromise])
-      console.log(result)
-      setFileAlert({  action: 'success', message: 'File deleted successfully' })
-      setTimeout(() => {
-        handleRefresh()
-      }, 1000)
-      setLoading(false)
-    } catch (error) {
-      console.log(error)
-      setFileAlert({ action: 'error', message: 'Error while deleting file'})
-      setLoading(false)
-    }
-  }
 
   const handleAlertClose = () => {
     setFileAlert({
@@ -192,11 +158,17 @@ const ListFIles = ({
                           <span style={{ marginLeft: "20px" }}><CircularProgress size={30} /></span> 
                           
                         }
-                        <CloseIcon onClick={() => {
-                          setLoadingIndex(index)
-                          handleDeleteFile(item.key, item.id);
+                          <div style={{ marginLeft: "20px" }} className={item.elab === 1 ? styles.green_elab : styles.red_elab}/>
+                        <CloseIcon 
+                        
+                        onClick={() => {
+                          console.log("I am clicked")
+                          // setLoadingIndex(index)
+                          setPdfKey(item.key)
+                          setItemId(item.id)
+                          setDeleteModal(true)
+                          // handleDeleteFile(item.key, item.id);
                         }} style={{ marginLeft: "20px" }} />
-
                       <Typography style={{ marginLeft: "20px" }}>{item.createdAt.split('T')[0]}</Typography>
 
                       <Typography style={{ marginLeft: "20px" }}>{getSubCategoryName(item.category, item.subCategory)}</Typography>
@@ -257,6 +229,17 @@ const ListFIles = ({
           pdfKey={pdfKey}
           signedURL={pdfUrl}
         />
+      }
+      {
+          deleteModal &&
+          <DeleteModalContainer
+            open={deleteModal}
+            setOpen={setDeleteModal}
+            pdfKey={pdfKey}
+            itemId={itemId}
+            handleRefresh={handleRefresh}
+          />
+        
       }
     </div>
   );

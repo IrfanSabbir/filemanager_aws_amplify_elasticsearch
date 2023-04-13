@@ -1,21 +1,24 @@
-import { Amplify,Storage } from 'aws-amplify';
+import { Amplify, Storage } from 'aws-amplify';
 import '@aws-amplify/ui-react/styles.css';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import awsExports from './aws-exports';
 import { FileUploader } from '@aws-amplify/ui-react';
-import { Grid, View, Card , useTheme } from '@aws-amplify/ui-react';
+import {
+  //  Grid,
+  View, Card, useTheme
+} from '@aws-amplify/ui-react';
 
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
- import {
+import {
   BrowserRouter,
   Routes,
   Route,
-} from "react-router-dom"; 
+} from "react-router-dom";
 
 import Sidenav from './Components/Sidenav';
 import Explore from "./Pages/Explore";
@@ -34,6 +37,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Grid from "@mui/material/Grid";
 
 import FileManager from './Components/FIleManager';
 
@@ -64,7 +68,7 @@ export default function App() {
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
-  };  
+  };
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -141,27 +145,23 @@ export default function App() {
   );
 
   return (
-    <Authenticator 
+    <Authenticator
       hideSignUp={true}>
       {({ signOut, user }) => (
-         <>
-    
-         <link rel="preconnect" href="https://fonts.googleapis.com" />
-         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-         <link
-           href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap"
-           rel="stylesheet"
-         />
-         <Grid
-           templateColumns={{ base: '1fr', large: 'auto 1fr' }}
-           templateRows={{ base: 'repeat(4, auto)', large: 'repeat(3, auto)' }}
-           gap={tokens.space.xxxs}
-         >
-            <View columnSpan={[1, 1, 1, 2]} backgroundColor={tokens.colors.pink[10]} >
-              {/*<button onClick={signOut}>Sign out</button> */}
+        <>
+
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap"
+            rel="stylesheet"
+          />
+
+          <Grid container>
+            <Grid item>
               <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static" >
-                  <Toolbar  sx={{ backgroundColor: '#2d3c55' }}>
+                <AppBar >
+                  <Toolbar sx={{ backgroundColor: '#2d3c55' }}>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                       <IconButton
@@ -202,29 +202,22 @@ export default function App() {
                 {renderMobileMenu}
                 {renderMenu}
               </Box>
-             
-            </View>
-           <View rowSpan={{ base: 1, large: 2 }} backgroundColor={tokens.colors.pink[20]} >
-               <Sidenav/>
-                <main>
-                  <Routes>
-                    <Route  path="/" element={<Home />}/>
-                    <Route path="/explore" element={<Explore />} />
-                  </Routes>
-               </main>
-           </View>
-           <View>
-            <FileManager />
-            {/* <FileUploader
-              previewFooter={renderPreviewFooter}
-              isPreviewerVisible={true}
-              acceptedFileTypes={['.pdf']}
-              accessLevel="public"
-            /> */}
-                       
-           </View>
-         </Grid>
-         </>
+            </Grid>
+            <Grid item xs={4} md={3} lg={2} style={{ marginTop: "60px" }}>
+              <Sidenav />
+            </Grid>
+            <Grid item xs={8} md={9} lg={10} style={{ marginTop: "100px" }}>
+              <main>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/explore" element={<Explore />} />
+                </Routes>
+              </main>
+            </Grid>
+          </Grid>
+
+
+        </>
       )}
     </Authenticator>
   );
